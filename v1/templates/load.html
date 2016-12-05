@@ -1,0 +1,16 @@
+{% extends "list.html" %}
+
+{% block content %}
+
+<h3>Books</h3>
+
+<a href="load/samples" class="btn btn-success btn-sm">
+  <i class="glyphicon glyphicon-plus"></i>
+  Record your samples
+</a>
+
+{% if fft %}
+<h1>		This is the average frequency {{fft}}		</h1>
+{% endif %}
+{% endblock %}
+

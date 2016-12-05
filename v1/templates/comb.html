@@ -1,0 +1,17 @@
+{% extends "load1.html" %}
+
+
+{% block content %}
+
+<h3>Books</h3>
+
+
+<a href="comb" class="btn btn-success btn-sm">
+  <i class="glyphicon glyphicon-plus"></i>
+   Skip samples recording and record combinations
+</a>
+
+{% if fftsamp %}
+<h1>		This is the average combination frequency {{fftsamp}}		</h1>
+{% endif %}
+{% endblock %}
