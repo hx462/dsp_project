@@ -6,7 +6,7 @@ import numpy as np
 
 def savevoice(file_sample):
 
-    THRESHOLD = 5000   # Threshold to start writing to wave file
+    THRESHOLD = 20   # Threshold to start writing to wave file
     WIDTH = 2           # bytes per sample
     CHANNELS = 1
     RATE = 16000        # Sampling rate (samples/second)
@@ -47,7 +47,7 @@ def savevoice(file_sample):
             if m >= THRESHOLD:
                 wait = False
                 print "Recording..."
-                endTime = datetime.datetime.now() + datetime.timedelta(seconds=5)
+                endTime = datetime.datetime.now() + datetime.timedelta(seconds=1)
 
         if file_sample == 0:
                 output_wavefile = 'sample1.wav'

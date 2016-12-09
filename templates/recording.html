@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>lab-proj</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="
+    ../static/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Wheelnav index css -->
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <!-- CSS ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../static/js/raphael.min.js"></script>
+    <script type="text/javascript" src="../static/js/raphael.icons.min.js"></script>
+    <script type="text/javascript" src="../static/js/wheelnav.min.js"></script>
+    
+    <html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://simbyone.com/wp-content/uploads/2014/04/3455e6f65c33232a060c28829a49b1cb.png">
+    <title>Page Preloading Effects</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <script type="text/javascript" src="../static/_scripts/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="../static/_scripts/main.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <!-- jQuery -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../static/js/jqBootstrapValidation.js"></script>
+    <script src="../static/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../static/js/freelancer.min.js"></script>
+    
+    <!-- Load JavaScript -->
+    <script src="../static/js/main-load.js"></script>
+
+    <!--Import jQuery before materialize.js-->
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+    <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+
+    <link href="../static/css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" />
+
+<style>
+#loading{
+    background-color: #016f82;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    margin-top: 0px;
+    top: 0px;
+}
+#loading-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+   -ms-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); 
+    -webkit-animation: loading-center-absolute 1.5s infinite;
+    animation: loading-center-absolute 1.5s infinite;
+
+}
+.object{
+    width: 25px;
+    height: 25px;
+    background-color: #FFF;
+    float: left;
+    
+}
+
+
+
+
+#object_one {
+    -webkit-animation: object_one 1.5s infinite;
+    animation: object_one 1.5s infinite;
+    }
+#object_two {
+    -webkit-animation: object_two 1.5s infinite;
+    animation: object_two 1.5s infinite;
+    }
+#object_three {
+    -webkit-animation: object_three 1.5s infinite;
+    animation: object_three 1.5s infinite;
+    }
+#object_four {
+    -webkit-animation: object_four 1.5s infinite;
+    animation: object_four 1.5s infinite;
+    }
+    
+
+@-webkit-keyframes loading-center-absolute {
+  100% { -webkit-transform: rotate(-45deg); }
+
+}
+
+@keyframes loading-center-absolute {
+  100% { 
+    transform:  rotate(-45deg);
+    -webkit-transform:  rotate(-45deg);
+  }
+}
+
+
+
+@-webkit-keyframes object_one {
+  25% { -webkit-transform: translate(0,-50px) rotate(-180deg); }
+  100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+
+}
+
+@keyframes object_one {
+  25% { 
+    transform: translate(0,-50px) rotate(-180deg);
+    -webkit-transform: translate(0,-50px) rotate(-180deg);
+  } 
+  100% { 
+    transform: translate(0,0) rotate(-180deg);
+    -webkit-transform: translate(0,0) rotate(-180deg);
+  }
+}
+
+
+@-webkit-keyframes object_two {
+  25% { -webkit-transform: translate(50px,0) rotate(-180deg); }
+  100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+}
+
+@keyframes object_two {
+  25% { 
+    transform: translate(50px,0) rotate(-180deg);
+    -webkit-transform: translate(50px,0) rotate(-180deg);
+  } 
+  100% { 
+    transform: translate(0,0) rotate(-180deg);
+    -webkit-transform: translate(0,0) rotate(-180deg);
+  }
+}
+
+@-webkit-keyframes object_three {
+  25% { -webkit-transform: translate(-50px,0) rotate(-180deg); }
+  100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+}
+
+@keyframes object_three {
+  25% { 
+    transform:  translate(-50px,0) rotate(-180deg);
+    -webkit-transform:  translate(-50px,0) rotate(-180deg);
+  } 
+  100% { 
+    transform: translate(0,0) rotate(-180deg);
+    -webkit-transform: rtranslate(0,0) rotate(-180deg);
+  }
+}
+
+
+@-webkit-keyframes object_four {
+  25% { -webkit-transform: translate(0,50px) rotate(-180deg); }
+  100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+}
+
+@keyframes object_four {
+  25% { 
+    transform: translate(0,50px) rotate(-180deg); 
+    -webkit-transform: translate(0,50px) rotate(-180deg);  
+  } 
+  100% { 
+    transform: translate(0,0) rotate(-180deg);
+    -webkit-transform: translate(0,0) rotate(-180deg);
+  }
+}
+</style>
+    
+    <style>
+        body {
+            background-color: #E7E7E7;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        header {
+            font-size: x-large;
+            text-align: center;
+            /*background-color: #555;*/
+            color: #ddd;
+            padding: 5px;
+            font-family: Helvetica, sans-serif;
+            /*margin-bottom: 50px;*/
+        }
+
+            header a {
+                background-color: #ddd;
+                color: #555;
+                text-decoration: none;
+                padding: 0 3px 0 3px;
+            }
+
+                header a:hover {
+                    background-color: #555;
+                    color: #ddd;
+                    text-decoration: underline;
+                }
+
+
+        #wheelDiv {
+            height: 400px;
+            width: 400px;
+            margin: auto;
+        }
+
+        #wheelDiv>svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            #wheelDiv {
+                height: 350px;
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #wheelDiv {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        /* Insert generated CSS code from here -> http://pmg.softwaretailoring.net */
+
+    </style>
+
+            
+    <script type="text/javascript">
+
+        // $.ajax({
+        //         type: "POST",
+        //         url: "../record.py",
+        //         data: { param: avg_fft}
+        //         }).done(function( o ) {
+        //             // do something
+        //     })
+
+        $(function() {
+            var submit_form = function(e) {
+              $.getJSON($SCRIPT_ROOT + '/recording_data', {
+                // a: $('input[name="a"]').val(),
+                // b: $('input[name="b"]').val()
+              }, function(data) {
+                $('#result1').text(data.avg_fft1);
+                $('#result2').text(data.avg_fft2);
+                $('#result3').text(data.avg_fft3);
+                // $('input[name=a]').focus().select();
+              });
+              return false;
+            };
+
+            // On entering the recording page, trigger the function to start recording data
+            $('div#loader-wrapper').bind('mouseenter', submit_form);
+
+            // $('input[name=a]').focus();
+        });
+
+        window.onload = function () {
+
+            var wheel = new wheelnav("wheelDiv");
+
+            //This is the place for code snippets from the documentation -> http://wheelnavjs.softwaretailoring.net/documentation.html
+
+            // Change the value of the wheel navigation here
+            a = "Enjoy"
+
+            wheel.createWheel([a, "your", "Recording", icon.fave]);
+            wheel.navigateWheel(0);
+
+            //Insert generated JavaScript code from here -> http://pmg.softwaretailoring.net
+
+        };
+
+    </script>
+  
+
+    
+    
+
+</head>
+
+<body id="page-top" class="index">
+
+    <div href=# id="loading">
+    <div id="loading-center">
+    <div id="loading-center-absolute">
+    <div class="object" id="object_one"></div>
+    <div class="object" id="object_two"></div>
+    <div class="object" id="object_three"></div>
+    <div class="object" id="object_four"></div>
+    </div>
+    </div>
+     
+    </div>
+
+
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="">Start lab</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="recording">Recording</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="combination">Combination</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="words">V2T</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    
+    <header>
+
+            <h3>
+                <br>
+                <font color="red">
+                This is the average frequency
+                </font>
+            </h3>
+
+            <h4>
+                <br>
+                <font color="red">
+                [<span id="result1">?</span>,<span id="result2">?</span>,<span id="result3">?</span>]
+                </font>
+            </h4>
+            <!-- <a href=# id="calculate">Click to Record</a> -->
+
+            <div class="pie-wrapper">
+                <div id="wheelDiv"></div>
+            </div>
+            <div class="icon-next">
+             
+             <i class="material-icons">hearing</i>
+             
+            </div>
+
+            <div class="button-wrapper">
+                <div class="fixed-action-btn horizontal">
+                    <a class="btn-floating btn-large blue">
+                      <i class="large material-icons">fingerprint</i>
+                    </a>
+                    <ul>
+                      <li><a class="btn-floating green" href="combination"><i class="material-icons">done_all</i></a></li>
+                      <li><a class="btn-floating red" href="index"><i class="material-icons">clear</i></a></li>
+                      <li><a class="btn-floating yellow darken-1" href="recording"><i class="material-icons">replay</i></a></li>
+                
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recording-about">
+                <p>This is the first step to record your voice and generate a set of levels of the frequency of the voice. </p>
+            </div> 
+            
+    </header>
+    
+
+    <div href=# id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>  
+        <div class="loader-section section-right"></div> 
+    </div>
+    <div id="content">
+        <!-- <h2>This is our page title</h2> -->
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center">
+        
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+    
+    
+</body>
+
+</html>

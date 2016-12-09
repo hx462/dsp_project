@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import render_template
+from flask import jsonify
+from flask import request
 import pyaudio
 import struct
 import wave
@@ -25,19 +27,49 @@ avg_fft = [0 for a in range(3)]
 
 @app.route('/')
 def bottoms():
-	return render_template("base.html")
+	return render_template("index.html")
 
-@app.route('/load/samples')
+@app.route('/recording')
+def recording(fft=None):
+	for i in range(0, 2):
+		if i == 0:
+			
+			return render_template("recording.html")
+		if i == 1:
+			n = 0
+
+			while n < 3:
+				avg_fft[n] = savevoice.savevoice(n)
+				#print"The average is ", avg_fft[n]
+				n = n + 1
+			return render_template("recording.html", fft=avg_fft)
+
+@app.route('/recording_data')
 def samples(fft=None):
-	i = 0
 	n = 0
 
 	while n < 3:
 		avg_fft[n] = savevoice.savevoice(n)
 		#print"The average is ", avg_fft[n]
 		n = n + 1
-	return render_template("samples.html", fft=avg_fft)
+	return jsonify(avg_fft1=avg_fft[0], avg_fft2=avg_fft[1], avg_fft3=avg_fft[2])
 
+
+# def signUpUser():
+#     user =  request.form['username'];
+#     password = request.form['password'];
+#     return json.dumps({'status':'OK','user':user,'pass':password});
+
+
+# @app.route('/recording')
+# def samples(fft=None):
+# 	n = 0
+
+# 	while n < 3:
+# 		avg_fft[n] = savevoice.savevoice(n)
+# 		#print"The average is ", avg_fft[n]
+# 		n = n + 1
+# 	return render_template("recording.html", fft=avg_fft)
 
 max_sound = max(avg_fft)
 
@@ -52,33 +84,33 @@ print "The minimum bound is ", min_sound
 
 print "\nReady to start? make some sound"
 
-@app.route('/load1/comb')
+@app.route('/combination')
 def comb(fftsamp=None):
 	i = 0
 	avg_comb = [0 for c in range(2)]
 	while i < 2:
 		avg_comb[i] = savecombination.savecombination(i)
 		i = i + 1
-	return render_template("comb.html", fftsamp=avg_comb)
+	return render_template("combination.html", fftsamp=avg_comb)
 
 @app.route('/words')
 def words():
 	savetransc.savetransc()
 	return render_template("words.html")
 
-@app.route('/words/transc')
+@app.route('/words/v2t')
 def transc():
 	import transcribe
 	transcribe.transcribe()
-	return render_template("transc.html")
+	return render_template("v2t.html")
 
 @app.route('/load')
 def load():
 	return render_template("load.html")
 
-@app.route('/load1')
-def load1():
-	return render_template("load1.html")
+# @app.route('/load1')
+# def load1():
+# 	return render_template("load1.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)

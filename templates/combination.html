@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>lab-proj</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="static/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Wheelnav index css -->
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <!-- CSS ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="static/js/raphael.min.js"></script>
+    <script type="text/javascript" src="static/js/raphael.icons.min.js"></script>
+    <script type="text/javascript" src="static/js/wheelnav.min.js"></script>
+    <!-- loading css -->
+    <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://simbyone.com/wp-content/uploads/2014/04/3455e6f65c33232a060c28829a49b1cb.png">
+<title>Page Preloading Effects</title>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="static/_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+<link href="static/_css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/_scripts/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="static/_scripts/main.js"></script>
+
+<style>
+#loading{
+    background-color: #016f82;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    margin-top: 0px;
+    top: 0px;
+}
+#loading-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    }
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100px;
+    width: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+.object{
+    position: absolute;
+    height: 10px;
+    width: 50px;        
+    background-color: #FFF;
+}   
+.object:nth-child(2n+0) {
+    -webkit-animation: animate_right 2s infinite;
+    animation: animate_right 2s infinite;
+}
+.object:nth-child(2n+1) {
+    -webkit-animation: animate_left 2s infinite;
+    animation: animate_left 2s infinite;
+}       
+.object:nth-child(1){
+    top: 0px;
+    left: 0px;  
+    }
+.object:nth-child(2){
+    top: 0px;
+    left: 50px;
+    }
+.object:nth-child(3){
+    top: 10px;
+    left: 0px;  
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;  
+    }
+.object:nth-child(4){
+    top: 10px;
+    left: 50px;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;  
+    }
+.object:nth-child(5){
+    top: 20px;
+    left: 0px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;  
+    }
+.object:nth-child(6){
+    top: 20px;
+    left: 50px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+    }
+.object:nth-child(7){
+    top: 30px;
+    left: 0px;  
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;      
+    }
+.object:nth-child(8){
+    top: 30px;
+    left: 50px;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;  
+    }
+.object:nth-child(9){
+    top: 40px;
+    left: 0px;  
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }               
+.object:nth-child(10){
+    top: 40px;
+    left: 50px; 
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }   
+.object:nth-child(11){
+    top: 50px;
+    left: 0px;  
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    }               
+.object:nth-child(12){
+    top: 50px;
+    left: 50px; 
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    }   
+.object:nth-child(13){
+    top: 60px;
+    left: 0px;  
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    }               
+.object:nth-child(14){
+    top: 60px;
+    left: 50px; 
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    }   
+.object:nth-child(15){
+    top: 70px;
+    left: 0px;  
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+    }               
+.object:nth-child(16){
+    top: 70px;
+    left: 50px; 
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+    }
+.object:nth-child(17){
+    top: 80px;
+    left: 0px;  
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+    }               
+.object:nth-child(18){
+    top: 80px;
+    left: 50px; 
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+    }
+.object:nth-child(19){
+    top: 90px;
+    left: 0px;  
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    }               
+.object:nth-child(20){
+    top: 90px;
+    left: 50px; 
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    }
+
+
+
+@-webkit-keyframes animate_right {
+ 
+
+50% {
+    -ms-transform: translate(200px,-200px) rotate(180deg); 
+    -webkit-transform: translate(200px,-200px) rotate(180deg); 
+    transform: translate(200px,-200px) rotate(180deg); 
+  }
+      
+  
+
+}
+
+@keyframes animate_right {
+
+50% {
+    -ms-transform: translate(200px,-200px) rotate(180deg); 
+    -webkit-transform: translate(200px,-200px) rotate(180deg); 
+    transform: translate(200px,-200px) rotate(180deg); 
+  }
+     
+    
+    
+    }
+    
+
+
+@-webkit-keyframes animate_left {
+ 
+
+50% {
+    -ms-transform: translate(-200px,-200px) rotate(180deg); 
+    -webkit-transform: translate(-200px,-200px) rotate(180deg); 
+    transform: translate(-200px,-200px) rotate(180deg); 
+  }
+      
+  
+
+}
+
+@keyframes animate_left {
+
+50% {
+    -ms-transform: translate(-200px,-200px) rotate(180deg); 
+    -webkit-transform: translate(-200px,-200px) rotate(180deg); 
+    transform: translate(-200px,-200px) rotate(180deg); 
+  }
+     
+    
+    
+    }
+    <!-- loading css -->
+
+    
+    <style>
+        body {
+            background-color: #E7E7E7;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        header {
+            font-size: x-large;
+            text-align: center;
+            /*background-color: #555;*/
+            color: #ddd;
+            padding: 5px;
+            font-family: Helvetica, sans-serif;
+            /*margin-bottom: 50px;*/
+        }
+
+            header a {
+                background-color: #ddd;
+                color: #555;
+                text-decoration: none;
+                padding: 0 3px 0 3px;
+            }
+
+                header a:hover {
+                    background-color: #555;
+                    color: #ddd;
+                    text-decoration: underline;
+                }
+
+        /*footer {
+            text-align: center;
+            background-color: #555;
+            color: #ddd;
+            padding: 5px;
+            margin-top: 50px;
+        }
+
+            footer a {
+                background-color: #ddd;
+                color: #555;
+                text-decoration: none;
+                padding: 0 3px 0 3px;
+            }
+
+                footer a:hover {
+                    background-color: #555;
+                    color: #ddd;
+                    text-decoration: underline;
+                }*/
+
+        #wheelDiv {
+            height: 400px;
+            width: 400px;
+            margin: auto;
+        }
+
+        #wheelDiv>svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            #wheelDiv {
+                height: 350px;
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #wheelDiv {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        /* Insert generated CSS code from here -> http://pmg.softwaretailoring.net */
+
+    </style>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            var wheel = new wheelnav("wheelDiv");
+
+            //This is the place for code snippets from the documentation -> http://wheelnavjs.softwaretailoring.net/documentation.html
+
+            wheel.createWheel(["Enjoy", "your", "Recording", icon.fave]);
+            wheel.navigateWheel(0);
+
+            //Insert generated JavaScript code from here -> http://pmg.softwaretailoring.net
+
+        };
+
+    </script>
+    
+    
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- loading css ! -->
+    <div id="loading">
+    <div id="loading-center">
+    <div id="loading-center-absolute">
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    <div class="object"></div>
+    </div>
+    </div>
+     
+    </div>
+
+
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="">Start lab</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="recording">Recording</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="combination">Combination</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="words">V2T</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    
+    <header>
+             <img src="">
+             <i class="material-icons">hearing</i>
+            
+            <div class="recording-about">
+                <p>This is the second step to record your voice and then the voice will be classified as a specific voice combination.
+                </p>
+            </div> 
+            
+    </header>
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>  
+        <div class="loader-section section-right"></div> 
+    </div>
+    <div id="content">
+        <!-- <h2>This is our page title</h2> -->
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center">
+        
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="static/js/jqBootstrapValidation.js"></script>
+    <script src="static/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="static/js/freelancer.min.js"></script>
+    
+    <!-- Load JavaScript -->
+    <script src="static/js/main-load.js"></script>
+    
+</body>
+
+</html>
