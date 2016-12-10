@@ -6,7 +6,7 @@ import numpy as np
 
 def savecombination(file_sample):
 
-    THRESHOLD = 5000   # Threshold to start writing to wave file
+    THRESHOLD = 20   # Threshold to start writing to wave file
     WIDTH = 2           # bytes per sample
     CHANNELS = 1
     RATE = 16000        # Sampling rate (samples/second)
@@ -44,7 +44,7 @@ def savecombination(file_sample):
         X = np.fft.fft(input_tuple)
         fft_sum += sum(abs(X))
 
-        if wait == True:
+        if wait is True:
             m = max(abs(output_block))
             if m >= THRESHOLD:
                 wait = False
@@ -58,7 +58,7 @@ def savecombination(file_sample):
             wf.setsampwidth(WIDTH)
             wf.setframerate(RATE)
 
-            while (wait == False):
+            while (wait is False):
                 input_string = stream.read(BLOCKSIZE)                     # Read audio input stream
                 input_tuple = struct.unpack('h'*BLOCKSIZE, input_string)  # Convert
                 output_block = np.array(input_tuple)
@@ -83,7 +83,7 @@ def savecombination(file_sample):
             wf.setsampwidth(WIDTH)
             wf.setframerate(RATE)
 
-            while (wait == False):
+            while (wait is False):
                 input_string = stream.read(BLOCKSIZE)                     # Read audio input stream
                 input_tuple = struct.unpack('h'*BLOCKSIZE, input_string)  # Convert
                 output_block = np.array(input_tuple)
@@ -102,7 +102,7 @@ def savecombination(file_sample):
                     break
 
         if(sample_recorded == 1):
-            return avg_comb[file_sample]
+            return "{:.6f}".format(avg_comb[file_sample])
 
 
 #savecombination(1)

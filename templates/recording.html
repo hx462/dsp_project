@@ -80,8 +80,8 @@
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
     <script type="text/javascript" src="../static/js/materialize.min.js"></script>
 
-    <link href="../static/css/Icomoon/style.css" rel="stylesheet" type="text/css" />
-    <link href="../static/css/main.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="../static/css/Icomoon/style.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="../static/css/main.css" rel="stylesheet" type="text/css" /> -->
 
 <style>
 #loading{
@@ -294,40 +294,53 @@
         //             // do something
         //     })
 
+        var save_data = 0;
+
         $(function() {
             var submit_form = function(e) {
               $.getJSON($SCRIPT_ROOT + '/recording_data', {
                 // a: $('input[name="a"]').val(),
                 // b: $('input[name="b"]').val()
               }, function(data) {
+                save_data = data;
                 $('#result1').text(data.avg_fft1);
                 $('#result2').text(data.avg_fft2);
                 $('#result3').text(data.avg_fft3);
                 // $('input[name=a]').focus().select();
+                return save_data;
               });
               return false;
             };
 
             // On entering the recording page, trigger the function to start recording data
             $('div#loader-wrapper').bind('mouseenter', submit_form);
+            // On entering the recording page, load the wheel navigation
+            $('div#loader-wrapper').bind('mouseenter', load_wheel);
+            $('a#calculate').bind('click', submit_form);
+            $('a#load_wheel').bind('click', load_wheel);
+
 
             // $('input[name=a]').focus();
         });
 
-        window.onload = function () {
+        var load_wheel = function() {
+            // window.onload = function () {
 
             var wheel = new wheelnav("wheelDiv");
 
             //This is the place for code snippets from the documentation -> http://wheelnavjs.softwaretailoring.net/documentation.html
 
             // Change the value of the wheel navigation here
-            a = "Enjoy"
+            var avg_fft1 = document.getElementById("result1").textContent;
+            var avg_fft2 = document.getElementById("result2").textContent;
+            var avg_fft3 = document.getElementById("result3").textContent;
 
-            wheel.createWheel([a, "your", "Recording", icon.fave]);
+            wheel.createWheel([avg_fft1, avg_fft2, avg_fft3, icon.fave]);
             wheel.navigateWheel(0);
 
             //Insert generated JavaScript code from here -> http://pmg.softwaretailoring.net
 
+            // };
         };
 
     </script>
@@ -362,7 +375,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="">Start lab</a>
+                <a class="navbar-brand" href="/">Start lab</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -405,11 +418,37 @@
                 [<span id="result1">?</span>,<span id="result2">?</span>,<span id="result3">?</span>]
                 </font>
             </h4>
+            <a href=# id="calculate">record again(click)</a>
+            <a href=# id="load_wheel">refresh wheel data(click)</a>
             <!-- <a href=# id="calculate">Click to Record</a> -->
+
 
             <div class="pie-wrapper">
                 <div id="wheelDiv"></div>
             </div>
+
+            <!-- <div class="pie-wrapper">
+                <div id="wheelDiv" data-wheelnav
+                data-wheelnav-spreader
+                data-wheelnav-spreaderradius="50"
+                data-wheelnav-spreaderpath="AntiStarSpreader">
+                <div data-wheelnav-navitemtext="0"></div>
+                <div data-wheelnav-navitemtext="1"></div>
+                <div data-wheelnav-navitemtext="2"></div>
+                <div data-wheelnav-navitemtext="3"></div>
+                </div>
+            </div> -->
+
+            <!-- <div id="wheelDiv" data-wheelnav
+                data-wheelnav-spreader
+                data-wheelnav-spreaderradius="50"
+                data-wheelnav-spreaderpath="AntiStarSpreader">
+                <div data-wheelnav-navitemtext="0"></div>
+                <div data-wheelnav-navitemtext="1"></div>
+                <div data-wheelnav-navitemtext="2"></div>
+                <div data-wheelnav-navitemtext="3"></div>
+            </div> -->
+
             <div class="icon-next">
              
              <i class="material-icons">hearing</i>

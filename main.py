@@ -30,20 +30,13 @@ def bottoms():
 	return render_template("index.html")
 
 @app.route('/recording')
-def recording(fft=None):
-	for i in range(0, 2):
-		if i == 0:
-			
-			return render_template("recording.html")
-		if i == 1:
-			n = 0
+def recording():
+	print "\nReady to start? make some sound"
 
-			while n < 3:
-				avg_fft[n] = savevoice.savevoice(n)
-				#print"The average is ", avg_fft[n]
-				n = n + 1
-			return render_template("recording.html", fft=avg_fft)
+	return render_template("recording.html")
 
+# Call the function to record data and return json data to jQuery
+# so as to display on the web page
 @app.route('/recording_data')
 def samples(fft=None):
 	n = 0
@@ -60,17 +53,6 @@ def samples(fft=None):
 #     password = request.form['password'];
 #     return json.dumps({'status':'OK','user':user,'pass':password});
 
-
-# @app.route('/recording')
-# def samples(fft=None):
-# 	n = 0
-
-# 	while n < 3:
-# 		avg_fft[n] = savevoice.savevoice(n)
-# 		#print"The average is ", avg_fft[n]
-# 		n = n + 1
-# 	return render_template("recording.html", fft=avg_fft)
-
 max_sound = max(avg_fft)
 
 min_sound = min(avg_fft)
@@ -82,16 +64,29 @@ print "The maximum bound is ", max_sound
 print "The medium bound is ", mid_sound
 print "The minimum bound is ", min_sound
 
-print "\nReady to start? make some sound"
+
 
 @app.route('/combination')
-def comb(fftsamp=None):
+def comb():
+	return render_template("combination.html")
+
+
+@app.route('/combination_data')
+def comb_data(fftsamp=None):
 	i = 0
-	avg_comb = [0 for c in range(2)]
+	avg_comb = [0 for c in range(0, 2)]
+
 	while i < 2:
 		avg_comb[i] = savecombination.savecombination(i)
 		i = i + 1
-	return render_template("combination.html", fftsamp=avg_comb)
+	return jsonify(avg_comb1=avg_comb[0], avg_comb2=avg_comb[1])
+
+
+# @app.route('/test')
+# def test():
+# 	a, b = 0, 0
+# 	return jsonify(test1=a, test2=b)
+
 
 @app.route('/words')
 def words():

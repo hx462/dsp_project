@@ -42,7 +42,7 @@ def savevoice(file_sample):
         X = np.fft.fft(input_tuple)
         fft_sum += sum(abs(X))
 
-        if wait == True:
+        if wait is True:
             m = max(abs(output_block))
             if m >= THRESHOLD:
                 wait = False
@@ -55,7 +55,7 @@ def savevoice(file_sample):
                 wf.setnchannels(CHANNELS)
                 wf.setsampwidth(WIDTH)
                 wf.setframerate(RATE)
-                while (wait == False):
+                while (wait is False):
                     input_string = stream.read(BLOCKSIZE)                     # Read audio input stream
                     input_tuple = struct.unpack('h'*BLOCKSIZE, input_string)  # Convert
                     output_block = np.array(input_tuple)
@@ -71,7 +71,7 @@ def savevoice(file_sample):
                         print "Finished recording sample 1"
                         avg_fft[file_sample] = fft_sum/(DURATION * RATE)
                         print "The average is for the first sample is ", avg_fft[file_sample]
-                        #file_sample = 1
+                        # file_sample = 1
                         break
         elif file_sample == 1:
                 output_wavefile = 'sample2.wav'
@@ -79,7 +79,7 @@ def savevoice(file_sample):
                 wf.setnchannels(CHANNELS)
                 wf.setsampwidth(WIDTH)
                 wf.setframerate(RATE)
-                while (wait == False):
+                while (wait is False):
                     input_string = stream.read(BLOCKSIZE)                     # Read audio input stream
                     input_tuple = struct.unpack('h'*BLOCKSIZE, input_string)  # Convert
                     output_block = np.array(input_tuple)
@@ -99,12 +99,12 @@ def savevoice(file_sample):
                         break
 
         else:
-            output_wavefile = 'sample2.wav'
+            output_wavefile = 'sample3.wav'
             wf = wave.open(output_wavefile, 'wb')      # wave file
             wf.setnchannels(CHANNELS)
             wf.setsampwidth(WIDTH)
             wf.setframerate(RATE)
-            while (wait == False and file_sample == 2):
+            while (wait is False and file_sample == 2):
                 input_string = stream.read(BLOCKSIZE)                     # Read audio input stream
                 input_tuple = struct.unpack('h'*BLOCKSIZE, input_string)  # Convert
                 output_block = np.array(input_tuple)
@@ -123,7 +123,7 @@ def savevoice(file_sample):
                     break
 
         if(sample_recorded == 1):
-            return avg_fft[file_sample]
+            return "{:.6f}".format(avg_fft[file_sample])
         
 
 #savevoice(1)
