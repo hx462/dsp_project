@@ -317,12 +317,9 @@
             $('div#loader-wrapper').bind('mouseenter', submit_form);
             // On entering the recording page, load the wheel navigation
             $('div#loader-wrapper').bind('mouseenter', load_wheel);
-            // $('a.btn-floating yellow darken-1').bind('click', submit_form);
-            $('a#load_wheel').bind('click', load_wheel);
             $('a#calculate').bind('click', submit_form);
+            $('a#load_wheel').bind('click', load_wheel);
 
-            $('div.refresh').bind('click', load_wheel);
-            
 
             // $('input[name=a]').focus();
         });
@@ -415,10 +412,20 @@
                 average frequency
                 </font>
             </div>
-            <div href=. class="refresh">
+            <div class="refresh">
             <a class="waves-effect waves-light btn-large" style="text-decoration: none; background-color: " ><i class="material-icons left">track_changes</i>refresh</a>
             </div>
 
+            <a href=# id="calculate">record again(click)</a>
+            <!-- <a href=# id="load_wheel">refresh wheel data(click)</a> -->
+            <!-- <a href=# id="calculate">Click to Record</a> -->
+
+            <div class="results-id">
+                <br>
+                <font color="red" style="visibility: hidden;"><!-- style="visibility: hidden;" -->
+                [<span id="result1">Low</span>,<span id="result2">Medium</span>,<span id="result3">High</span>]
+                </font>
+            </div>
 
             <div class="pie-wrapper">
                 <div id="wheelDiv"></div>
@@ -461,31 +468,14 @@
                       <li><a class="btn-floating green" href="combination"><i class="material-icons">done_all</i></a></li>
 <!--                       <li><a class="btn-floating red" href="/"><i class="material-icons">clear</i></a></li> -->
                       <li><a class="btn-floating yellow darken-1" href="recording"><i class="material-icons">replay</i></a></li>
-                    <!-- <a href=# id="calculate">record again(click)</a> -->
-
+                
                     </ul>
                 </div>
             </div>
 
-            <!-- <li class="page-scroll">
-                        <a href="combination">Combination</a>
-            </li> -->
-
-
             <div class="recording-about">
                 <p>This is the first step to record your voice and generate a set of levels of the frequency of the voice. </p>
             </div> 
-            
-            <div class="results-id">
-                <br>
-                <font color="red" style="visibility: hidden;"><!-- style="visibility: hidden;" -->
-                [<span id="result1">Low</span>,<span id="result2">Medium</span>,<span id="result3">High</span>]
-                </font>
-            </div>
-
-            <a href=# id="calculate" style="visibility: hidden;">record again(click)</a>
-            <a href=# id="load_wheel" style="visibility: hidden;">refresh wheel data(click)</a>
-            <!-- <a href=# id="calculate">Click to Record</a> -->
             
     </header>
     

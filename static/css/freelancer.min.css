@@ -174,3 +174,5 @@ header .material-icons{font-size: 50px;color: #EEE}
 	}
 
 header .button-wrapper{position:fixed; width:100px;height: 100px right:300px; }
+
+.banner-recording{margin-top: 50px; margin-bottom: 25px; font-size: 150%;}

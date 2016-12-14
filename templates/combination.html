@@ -372,7 +372,7 @@
 
             //This is the place for code snippets from the documentation -> http://wheelnavjs.softwaretailoring.net/documentation.html
 
-            wheel.createWheel(["Enjoy", "your", "Recording", icon.fave]);
+            wheel.createWheel(["Enjoy", "Recording", icon.fave]);
             wheel.navigateWheel(0);
 
             //Insert generated JavaScript code from here -> http://pmg.softwaretailoring.net
@@ -417,7 +417,7 @@
             var avg_comb1 = document.getElementById("result1").textContent;
             var avg_comb2 = document.getElementById("result2").textContent;
 
-            wheel.createWheel([avg_comb1, avg_comb2, avg_comb1, icon.fave]);
+            wheel.createWheel([avg_comb2, avg_comb1, icon.fave]);
             wheel.navigateWheel(0);
 
             //Insert generated JavaScript code from here -> http://pmg.softwaretailoring.net
@@ -502,22 +502,24 @@
 
             <h3>
                 <br>
-                <font color="red">
+                <!-- <font color="red">
                 This is the combination
-                </font>
+                </font> -->
             </h3>
 
             <h4>
                 <br>
                 <font color="red">
-                [<span id="result1">?</span>,<span id="result2">?</span>]
+                [<span id="result1">comb1</span>,<span id="result2">comb2</span>]
                 </font>
             </h4>
             <a href=# id="calculate">record&combine again(click)</a>
             <a href=# id="load_wheel">refresh wheel data(click)</a>
 
             <div class="pie-wrapper">
-                <div id="wheelDiv"></div>
+                <div id="wheelDiv" data-wheelnav
+                data-wheelnav-navangle="30" 
+                data-wheelnav-colors="#f5be41,#2d9e46,#E34C26"></div>
             </div>
 
              <img src="">
