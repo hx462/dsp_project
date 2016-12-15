@@ -25,9 +25,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet">
+
     <!-- CSS ICONS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,6 +75,9 @@
     
     <!-- Load JavaScript -->
     <script src="static/js/main-load.js"></script>
+
+    <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+
 
 
 <style>
@@ -403,6 +409,8 @@
             $('a#calculate').bind('click', submit_form);
             $('a#load_wheel').bind('click', load_wheel);
 
+            $('div.refresh').bind('click', load_wheel);
+
             // $('input[name=a]').focus();
         });
         
@@ -498,28 +506,22 @@
     <!-- Header -->
     
     <header>
-            <br><br><br>
 
-            <h3>
+            <div class="banner-recording">
                 <br>
-                <!-- <font color="red">
-                This is the combination
-                </font> -->
-            </h3>
-
-            <h4>
-                <br>
-                <font color="red">
-                [<span id="result1">comb1</span>,<span id="result2">comb2</span>]
+                <font color="#016f82" style="font-family: 'Ubuntu', sans-serif; text-transform: lowercase;">
+                Combination results
                 </font>
-            </h4>
-            <a href=# id="calculate">record&combine again(click)</a>
-            <a href=# id="load_wheel">refresh wheel data(click)</a>
+            </div>
+
+            <div href=. class="refresh">
+            <a class="waves-effect waves-light btn-large" style="text-decoration: none; z-index: 0; background-color: "><i class="material-icons left">track_changes</i>refresh</a>
+            </div>
 
             <div class="pie-wrapper">
                 <div id="wheelDiv" data-wheelnav
                 data-wheelnav-navangle="30" 
-                data-wheelnav-colors="#f5be41,#2d9e46,#E34C26"></div>
+                data-wheelnav-colors="#3499db,#e74c3c,#f9c922"></div>
             </div>
 
              <img src="">
@@ -530,6 +532,16 @@
                 </p>
             </div> 
             
+            <h4>
+                <br>
+                <font color="red" style="visibility: hidden;">
+                [<span id="result1">comb1</span>,<span id="result2">comb2</span>]
+                </font>
+            </h4>
+
+            <a href=# id="calculate" style="visibility: hidden;">record&combine again(click)</a>
+            <a href=# id="load_wheel" style="visibility: hidden;">refresh wheel data(click)</a>
+
     </header>
 
     <div href=# id="loader-wrapper">
