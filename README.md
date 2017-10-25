@@ -14,4 +14,4 @@ Then
 
 **$ python -m flask run**
 
-if you use windows, use **set** instead of **export** 
+if you use windows, use **set** instead of **export**
